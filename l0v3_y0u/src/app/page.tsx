@@ -19,27 +19,6 @@ export default function LoveLetterEnvelope() {
     setOpen((prev) => !prev);
     audioRef.current?.play();
   };
-  const imageVariants = {
-    hidden: {
-      opacity: 0,
-      x: 0,
-      y: 0,
-      scale: 0.95,
-    },
-    visibleMobile: {
-      opacity: 1,
-      y: 150, // Desliza para cima (ajuste conforme necessário)
-      scale: 1.05,
-      transition: { duration: 0.7, ease: "easeInOut" },
-    },
-    visibleDesktop: {
-      opacity: 1,
-      x: -350,
-      y: -300, // Desliza para a direita (ajuste conforme necessário)
-      scale: 1.05,
-      transition: { duration: 0.7, ease: "easeInOut" },
-    },
-  };
 
   // Variants para a carta
   const letterVariants = {
@@ -72,11 +51,6 @@ export default function LoveLetterEnvelope() {
 
   // Escolhe o variant da carta conforme estado e tamanho de tela
   const letterVariant = open
-    ? isMobile
-      ? "visibleMobile"
-      : "visibleDesktop"
-    : "hidden";
-  const imageVariant = open
     ? isMobile
       ? "visibleMobile"
       : "visibleDesktop"
